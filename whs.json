@@ -1,0 +1,27 @@
+{
+"alias": "whs",
+"brand": "kvm",
+"vcpus": 1,
+"autoboot": false,
+"ram": 2048,
+"resolvers": ["10.5.2.100"],
+"disks": [
+  {
+    "boot": true,
+    "model": "virtio",
+    "block_size": 4096,
+    "size": 1048576
+  }
+  ],
+"nics": [
+    {"nic_tag": "admin",
+     "model": "virtio",
+     "ip": "10.5.2.102",
+     "netmask": "255.255.255.0",
+     "gateway": "10.5.2.1",
+     "primary": 1
+    }
+  ],
+  "cpu_cap": 200,
+  "vcpus": 2
+}

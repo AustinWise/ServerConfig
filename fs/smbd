@@ -1,0 +1,26 @@
+#!/sbin/sh
+#
+#
+
+. /lib/svc/share/smf_include.sh
+
+SMB_HOME=/opt/local/sbin
+PIDFILE=/var/run/smbd.pid
+
+
+case $1 in
+start)
+         /bin/rm -f ${PIDFILE}
+         ${SMB_HOME}/smbd
+         ;;
+stop)
+         PID=`head -1 ${PIDFILE}`
+         kill -TERM ${PID}
+         ;;
+*)
+         echo "Usage: $0 {start|stop)"
+         exit $SMF_EXIT_ERR_FATAL
+         ;;
+esac
+
+exit $SMF_EXIT_OK

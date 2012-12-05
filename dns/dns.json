@@ -1,0 +1,15 @@
+{
+"brand": "joyent",
+"dataset_uuid": "60a3b1fa-0674-11e2-abf5-cb82934a8e24",
+"nics": [{"nic_tag": "admin",
+    "ip": "10.5.2.100",
+    "netmask": "255.255.255.0",
+    "gateway": "10.5.2.1",
+    "dhcp_server": "true"}]
+,"alias": "dns"
+,"hostname": "dns"
+,"dns_domain": "wise.local"
+,"resolvers": ["8.8.8.8","8.8.4.4"]
+
+}
+
