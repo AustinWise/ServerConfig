@@ -1,0 +1,20 @@
+{
+"brand": "joyent",
+"dataset_uuid": "60a3b1fa-0674-11e2-abf5-cb82934a8e24",
+"nics": [{"nic_tag": "admin",
+    "ip": "10.5.2.103",
+    "netmask": "255.255.255.0",
+    "gateway": "10.5.2.1"}]
+,"alias": "torrent"
+,"hostname": "torrent"
+,"dns_domain": "wise.local"
+,"resolvers": ["10.5.2.100"]
+
+,"filesystems":[{
+  "type": "lofs",
+  "source": "/zones/shares/torrents",
+  "target": "/zones/shares/torrents",
+  "options":"nodevices"
+}]
+
+}
