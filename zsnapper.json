@@ -1,0 +1,34 @@
+{
+  "zones": {
+    "minute": {
+      "when": "* * * * *",
+      "count": 15,
+      "exclude": [ "zones/swap", "zones/dump", "zones/cores" ]
+    },
+    "hourly": {
+      "when": "0 * * * *",
+      "count": 24,
+      "exclude": [ "zones/swap", "zones/dump", "zones/cores" ]
+    },
+    "daily": {
+      "when": "00 05 * * *",
+      "count": 10,
+      "exclude": [ "zones/swap", "zones/dump", "zones/cores" ]
+    },
+    "weekly": {
+      "when": "00 05 * * 1",
+      "count": 4,
+      "exclude": [ "zones/swap", "zones/dump", "zones/cores" ]
+    },
+    "monthly": {
+      "when": "00 05 1 * *",
+      "count": 12,
+      "exclude": [
+        "zones/swap",
+        "zones/dump",
+        "zones/cores",
+        "zones/shares/torrents"
+      ]
+    }
+  }
+}
