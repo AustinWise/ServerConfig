@@ -21,7 +21,5 @@
      "gateway": "10.5.2.1",
      "primary": 1
     }
-  ],
-  "cpu_cap": 200,
-  "vcpus": 2
+  ]
 }
