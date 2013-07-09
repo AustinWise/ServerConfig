@@ -1,9 +1,0 @@
-::1        localhost
-127.0.0.1  localhost loghost
-10.5.2.100	dns.wise.local
-10.5.2.101	fs.wise.local
-10.5.2.102	whs.wise.local
-10.5.2.103	torrent.wise.local
-
-10.5.2.9		shirase.wise.local
-
