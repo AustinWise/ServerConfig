@@ -19,6 +19,11 @@
   "type": "lofs",
   "source": "/zones/home",
   "target": "/zones/home"
+},
+{
+  "type": "lofs",
+  "source": "/zones/home/austin",
+  "target": "/home/austin"
 }]
 
 }
