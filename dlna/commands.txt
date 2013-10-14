@@ -1,0 +1,7 @@
+
+pkgin install gmake gcc47 ffmpeg openjdk7 yasm
+
+MPlayer-1.1.1
+./configure --prefix=/opt/local
+
+crle -l /lib:/usr/lib:/opt/austin/lib/
