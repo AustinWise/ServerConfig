@@ -1,0 +1,23 @@
+{
+  "brand": "joyent",
+  "max_physical_memory": 512,
+  "image_uuid": "81223438-7874-11e3-9edf-8f1e15269924",
+
+"nics": [{"nic_tag": "admin",
+    "ip": "10.5.2.108",
+    "netmask": "255.255.255.0",
+    "gateway": "10.5.2.1"}]
+,"alias": "node"
+,"hostname": "node"
+,"dns_domain": "wise.local"
+,"resolvers": ["10.5.2.100"]
+
+,"filesystems":[
+{
+  "type": "lofs",
+  "source": "/zones/home/austin",
+  "target": "/home/austin"
+}]
+
+}
+
