@@ -1,9 +1,10 @@
 {
 "alias": "whs",
 "brand": "kvm",
-"vcpus": 1,
+"vcpus": 4,
+"qemu_extra_opts": "-smp cores=4,sockets=1",
 "autoboot": false,
-"ram": 2048,
+"ram": 4096,
 "resolvers": ["10.5.2.100"],
 "disks": [
   {
