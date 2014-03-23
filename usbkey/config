@@ -3,7 +3,8 @@
 #
 
 # admin_nic is the nic admin_ip will be connected to for headnode zones.
-admin_nic=0:1f:bc:2:1a:87
+# admin_nic=0:1f:bc:2:1a:87
+admin_nic=0:25:90:dc:ec:6a
 admin_ip=10.5.2.3
 admin_netmask=255.255.255.0
 admin_network=...
@@ -19,4 +20,5 @@ compute_node_ntp_hosts=10.5.2.3
 
 #austin added
 root_authorized_keys_file=authorized_keys
+default_keymap=us
 
