@@ -1,0 +1,1 @@
+zfs create -o compression=lz4 -o dedup=on -o checksum=sha256 -o nbmand=on zones/shares/backup
