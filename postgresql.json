@@ -1,0 +1,21 @@
+{
+  "brand": "joyent",
+  "max_physical_memory": 2048,
+  "image_uuid": "48bd354a-efd0-11e5-9ae1-d78e67ed4602",
+  "nics": [
+    {
+      "nic_tag": "admin",
+      "ip": "10.5.2.105",
+      "netmask": "255.255.255.0",
+      "gateway": "10.5.2.1",
+      "primary": true
+    }
+  ],
+  "alias": "postgresql",
+  "hostname": "postgresql",
+  "dns_domain": "wise.local",
+  "resolvers": [
+    "10.5.2.100"
+  ],
+  "quota": 100
+}
