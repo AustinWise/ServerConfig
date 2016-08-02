@@ -17,5 +17,5 @@
   "resolvers": [
     "10.5.2.100"
   ],
-  "quota": 100
+  "delegate_dataset": true
 }
