@@ -1,0 +1,19 @@
+{
+  "brand": "lx",
+  "kernel_version": "3.13.0",
+  "image_uuid": "05140a7e-279f-11e6-aedf-47d4f69d2887",
+  "alias": "dkp",
+  "hostname": "dkp",
+  "max_physical_memory": 1024,
+  "max_swap": 1024,
+  "nics": [
+    {
+      "nic_tag": "admin",
+      "ip": "10.5.2.106",
+      "netmask": "255.255.255.0",
+      "gateway": "10.5.2.1"
+    }
+  ]
+  ,"dns_domain": "wise.local"
+  ,"resolvers": ["10.5.2.100"]
+}

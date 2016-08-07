@@ -1,0 +1,12 @@
+[Unit]
+Description=Dinner Kill Points
+After=syslog.target network.target
+
+[Service]
+Environment="ASPNETCORE_URLS=http://0.0.0.0:8080" "psql=Server=10.5.2.105;Database=dkp;User Id=postgres;Password="
+ExecStart=/root/publish/DkpWeb
+WorkingDirectory=/root/publish
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
