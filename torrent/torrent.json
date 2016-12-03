@@ -14,7 +14,7 @@
   "type": "lofs",
   "source": "/zones/shares/torrents",
   "target": "/zones/shares/torrents",
-  "options":"nodevices"
+  "options": ["nodevices"]
 }]
 
 }

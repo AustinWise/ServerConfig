@@ -14,12 +14,12 @@
   "type": "lofs",
   "source": "/zones/shares/videos",
   "target": "/zones/shares/videos",
-  "options": "ro,nodevices"
+  "options": ["ro","nodevices"]
 },{
   "type": "lofs",
   "source": "/zones/shares/music",
   "target": "/zones/shares/music",
-  "options": "ro,nodevices"
+  "options": ["ro","nodevices"]
 }]
 
 }
