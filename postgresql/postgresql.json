@@ -5,9 +5,9 @@
   "nics": [
     {
       "nic_tag": "admin",
-      "ip": "10.5.2.105",
+      "ip": "192.168.1.105",
       "netmask": "255.255.255.0",
-      "gateway": "10.5.2.1",
+      "gateway": "192.168.1.1",
       "primary": true
     }
   ],
@@ -15,7 +15,7 @@
   "hostname": "postgresql",
   "dns_domain": "wise.local",
   "resolvers": [
-    "10.5.2.100"
+    "192.168.1.100"
   ],
   "delegate_dataset": true
 }

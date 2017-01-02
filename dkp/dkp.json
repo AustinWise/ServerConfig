@@ -9,11 +9,11 @@
   "nics": [
     {
       "nic_tag": "admin",
-      "ip": "10.5.2.106",
+      "ip": "192.168.1.106",
       "netmask": "255.255.255.0",
-      "gateway": "10.5.2.1"
+      "gateway": "192.168.1.1"
     }
   ]
   ,"dns_domain": "wise.local"
-  ,"resolvers": ["10.5.2.100"]
+  ,"resolvers": ["192.168.1.100"]
 }

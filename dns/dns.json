@@ -2,9 +2,9 @@
 "brand": "joyent",
 "dataset_uuid": "9eac5c0c-a941-11e2-a7dc-57a6b041988f",
 "nics": [{"nic_tag": "admin",
-    "ip": "10.5.2.100",
+    "ip": "192.168.1.100",
     "netmask": "255.255.255.0",
-    "gateway": "10.5.2.1",
+    "gateway": "192.168.1.1",
     "dhcp_server": "true"}]
 ,"alias": "dns"
 ,"hostname": "dns"

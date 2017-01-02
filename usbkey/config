@@ -1,26 +1,21 @@
-#
-# This file was auto-generated and must be source-able by bash.
-#
-
+# aggregrate the two NICs together
 aggr0_aggr=00:25:90:dc:ec:6a,00:25:90:dc:ec:6b
 
-# admin_nic is the nic admin_ip will be connected to for headnode zones.
+# uses the aggregrated NICs as the admin network
 admin_nic=aggr0
-admin_ip=10.5.2.3
+admin_ip=192.168.1.6
 admin_netmask=255.255.255.0
-admin_network=...
-admin_gateway=10.5.2.3
+admin_gateway=192.168.1.1
 
-headnode_default_gateway=10.5.2.1
+headnode_default_gateway=192.168.1.1
 
 dns_resolvers=8.8.8.8,8.8.4.4
 dns_domain=wise.local
 
 ntp_hosts=pool.ntp.org
-compute_node_ntp_hosts=10.5.2.3
+compute_node_ntp_hosts=192.168.1.3
 
-#austin added
+# Austin added
 root_authorized_keys_file=authorized_keys
 default_keymap=us
 hostname=kyouei
-
