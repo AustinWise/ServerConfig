@@ -1,0 +1,26 @@
+{
+  "brand": "lx",
+  "kernel_version": "4.3.0",
+  "image_uuid": "8879c758-c0da-11e6-9e4b-93e32a67e805",
+  "alias": "yocto",
+  "hostname": "yocto",
+  "max_physical_memory": 8192,
+  "max_swap": 8192,
+  "nics": [
+    {
+      "nic_tag": "admin",
+      "ip": "10.5.2.110",
+      "netmask": "255.255.255.0",
+      "gateway": "10.5.2.1"
+    }
+  ]
+  ,"dns_domain": "wise.local"
+  ,"resolvers": ["10.5.2.100"]
+
+,"filesystems":[
+{
+  "type": "lofs",
+  "source": "/zones/home",
+  "target": "/home"
+}]
+}
