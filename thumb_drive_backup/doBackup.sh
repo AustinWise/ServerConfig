@@ -57,3 +57,5 @@ do
                 exit 1
         fi
 done
+
+echo DONE, SUCCESSFULLY! (probably)
