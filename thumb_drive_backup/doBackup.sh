@@ -58,4 +58,4 @@ do
         fi
 done
 
-echo DONE, SUCCESSFULLY! (probably)
+echo DONE, SUCCESSFULLY!
