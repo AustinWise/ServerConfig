@@ -17,3 +17,6 @@ rsync $RSYNC_OPT $SRC/c/Users/G/Downloads/ $DEST/DownG/
 rsync $RSYNC_OPT $SRC/c/Users/G/Desktop/ $DEST/DesktopG/
 
 echo done
+
+touch $HOME/.lastBackup
+exit 0
