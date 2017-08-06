@@ -1,14 +1,14 @@
 {
 "brand": "joyent",
-"dataset_uuid": "9eac5c0c-a941-11e2-a7dc-57a6b041988f",
+"dataset_uuid": "1f32508c-e6e9-11e6-bc05-8fea9e979940",
 "nics": [{"nic_tag": "admin",
-    "ip": "192.168.1.101",
+    "ip": "10.5.2.101",
     "netmask": "255.255.255.0",
-    "gateway": "192.168.1.1"}]
+    "gateway": "10.5.2.1"}]
 ,"alias": "fs"
 ,"hostname": "fs"
 ,"dns_domain": "wise.local"
-,"resolvers": ["192.168.1.100"]
+,"resolvers": ["10.5.2.100"]
 
 ,"filesystems":[{
   "type": "lofs",
