@@ -12,6 +12,7 @@ rsync $RSYNC_OPT $SRC/d/src/ $DEST/src/
 rsync $RSYNC_OPT $SRC/d/AustinWise/ $DEST/AustinWise/
 rsync $RSYNC_OPT $SRC/c/Users/AustinWise/Downloads/ $DEST/DownAustin/
 rsync $RSYNC_OPT $SRC/c/Users/AustinWise/Desktop/ $DEST/DesktopAustin/
+rsync $RSYNC_OPT $SRC/c/Users/AustinWise/OneDrive/ $DEST/AustinOneDrive/
 rsync $RSYNC_OPT $SRC/c/Users/AustinWise/AppData/Roaming/Mozilla/Firefox/Profiles/kqn8ogux.default/ $DEST/FirefoxAustin/
 rsync $RSYNC_OPT $SRC/d/G/ $DEST/G/
 rsync $RSYNC_OPT $SRC/c/Users/G/Downloads/ $DEST/DownG/
