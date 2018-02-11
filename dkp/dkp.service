@@ -3,11 +3,13 @@ Description=Dinner Kill Points
 After=syslog.target network.target
 
 [Service]
-Environment="ASPNETCORE_URLS=http://0.0.0.0:8080"
-EnvironmentFile=/root/dkpenv
-ExecStart=/root/publish/DkpWeb
-WorkingDirectory=/root/publish
+EnvironmentFile=/home/dkp/dkpenv
+WorkingDirectory=/home/dkp/publish
+ExecStart=./DkpWeb
 KillSignal=SIGINT
+SyslogIdentifier=dkp
+Restart=always
+User=dkp
 
 [Install]
 WantedBy=multi-user.target

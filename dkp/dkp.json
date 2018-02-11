@@ -1,19 +1,19 @@
 {
   "brand": "lx",
-  "kernel_version": "3.13.0",
-  "image_uuid": "05140a7e-279f-11e6-aedf-47d4f69d2887",
+  "kernel_version": "4.14.0",
+  "image_uuid": "7b5981c4-1889-11e7-b4c5-3f3bdfc9b88b",
   "alias": "dkp",
   "hostname": "dkp",
-  "max_physical_memory": 1024,
-  "max_swap": 1024,
+  "max_physical_memory": 8192,
+  "max_swap": 8192,
   "nics": [
     {
       "nic_tag": "admin",
-      "ip": "192.168.1.106",
+      "ip": "10.5.2.106",
       "netmask": "255.255.255.0",
-      "gateway": "192.168.1.1"
+      "gateway": "10.5.2.1"
     }
   ]
   ,"dns_domain": "wise.local"
-  ,"resolvers": ["192.168.1.100"]
+  ,"resolvers": ["10.5.2.100"]
 }
