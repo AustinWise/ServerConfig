@@ -3,7 +3,7 @@ set -e
 set -o pipefail
 set -x
 
-RSYNC_OPT="-rt --delete -e ssh --exclude /.cache/"
+RSYNC_OPT="-rt --delete -e ssh --exclude /.cache/ --exclude /.steam/ --exclude /.nuget/ --exclude /.local/share/NuGet/"
 DEST=root@10.5.2.3:/zones/shares/backup/rsync_ubuntu
 SRC=/tank/home
 
