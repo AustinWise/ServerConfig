@@ -7,7 +7,7 @@ apt-get update
 
 apt-get upgrade -y
 
- # .NET Core dependencies
+ # .NET Core dependencies plus Graphviz
 apt-get install -y --no-install-recommends \
         libunwind8 \
         liblttng-ust0 \
@@ -16,7 +16,8 @@ apt-get install -y --no-install-recommends \
         libuuid1 \
         libkrb5-3 \
         zlib1g \
-        libicu55
+        libicu55 \
+        graphviz
 
 useradd -s /bin/bash -g www-data -m dkp
 
@@ -24,6 +25,8 @@ cp dkp.service /etc/systemd/system/
 
 systemctl enable dkp.service
 
-#TODO: add this to sudoers
-# Cmnd_Alias MYAPP_CMNDS = /bin/systemctl start dkp, /bin/systemctl stop dkp
-# dkp ALL=(ALL) NOPASSWD: MYAPP_CMNDS
+# Allow the dkp user to stop and start the service
+DKP_SUDO=/etc/sudoers.d/dkp
+echo "Cmnd_Alias MYAPP_CMNDS = /bin/systemctl start dkp, /bin/systemctl stop dkp" > $DKP_SUDO
+echo "dkp ALL=(ALL) NOPASSWD: MYAPP_CMNDS" >> $DKP_SUDO
+chmod 440 $DKP_SUDO
