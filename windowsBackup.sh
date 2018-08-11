@@ -3,7 +3,9 @@ set -e
 set -o pipefail
 set -x
 
-RSYNC_OPT="-rt --delete -e ssh"
+echo START > $HOME/backupLog.txt
+
+RSYNC_OPT="-rt --delete -e ssh --human-readable --log-file=$HOME/backupLog.txt --stats"
 DEST=root@10.5.2.3:/zones/shares/backup/rsync
 #SRC=/mnt
 SRC=/cygdrive
