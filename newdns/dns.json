@@ -1,0 +1,21 @@
+{
+  "brand": "joyent",
+  "dataset_uuid": "c6a275e4-c730-11e8-8c5f-9b24fe560a8f",
+  "nics": [
+    {
+      "nic_tag": "admin",
+      "ips": [
+        "10.5.2.150/24",
+        "addrconf"
+      ],
+      "gateway": "10.5.2.1"
+    }
+  ],
+  "alias": "newdns",
+  "hostname": "newdns",
+  "dns_domain": "wise.local",
+  "resolvers": [
+    "1.1.1.1",
+    "1.0.0.1"
+  ]
+}
