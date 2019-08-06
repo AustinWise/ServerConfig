@@ -5,7 +5,7 @@ set -x
 
 NO_SNAP_NAME=this_snap_name_does_not_exist
 
-if [ $(hostname) != 'kyouei' ]; then
+if [ $(hostname) != 'kyouei-global' ]; then
         echo not kyouei >&2
         exit 1
 fi
