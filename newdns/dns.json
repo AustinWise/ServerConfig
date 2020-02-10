@@ -1,6 +1,6 @@
 {
   "brand": "joyent",
-  "dataset_uuid": "c6a275e4-c730-11e8-8c5f-9b24fe560a8f",
+  "dataset_uuid": "e75c9d82-3156-11ea-9220-c7a6bb9f41b6",
   "nics": [
     {
       "nic_tag": "admin",
@@ -17,5 +17,23 @@
   "resolvers": [
     "1.1.1.1",
     "1.0.0.1"
+  ],
+  "filesystems": [
+    {
+      "type": "lofs",
+      "source": "/usbkey/config.inc/authorized_keys",
+      "target": "/root/.ssh/authorized_keys",
+      "options": [
+        "ro"
+      ]
+    },
+    {
+      "type": "lofs",
+      "source": "/usbkey/config.inc/authorized_keys",
+      "target": "/home/admin/.ssh/authorized_keys",
+      "options": [
+        "ro"
+      ]
+    }
   ]
 }

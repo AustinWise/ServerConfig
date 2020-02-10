@@ -1,0 +1,45 @@
+---
+
+- hosts: dns
+  handlers:
+    - name: restart dnsmasq
+      service:
+        name: dnsmasq
+        state: restarted
+  tasks:
+  - name: install dnsmasq
+    pkgin:
+      update_cache: yes
+      full_upgrade: yes
+      name: dnsmasq
+      state: present
+    notify:
+      - restart dnsmasq
+  - name: hosts file
+    copy:
+      src: dns/hosts
+      dest: /etc/hosts
+    notify:
+      - restart dnsmasq
+  - name: copy dnsmasq config
+    copy:
+      src: dns/dnsmasq.conf
+      dest: /opt/local/etc/dnsmasq.conf
+    notify:
+      - restart dnsmasq
+  - name: enable dnsmasq
+    service:
+      name: dnsmasq
+      state: started
+      enabled: true
+  - name: dns update script
+    copy:
+      src: dns/updateDns.sh
+      dest: /root/updateDns.sh
+      mode: 0700
+  - name: dns update cron
+    cron:
+      name: "dynamic DNS update"
+      minute: "54"
+      hour: "7"
+      job: "/root/updateDns.sh"

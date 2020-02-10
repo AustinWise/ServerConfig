@@ -1,15 +1,39 @@
 {
-"brand": "joyent",
-"dataset_uuid": "1f32508c-e6e9-11e6-bc05-8fea9e979940",
-"nics": [{"nic_tag": "admin",
-    "ip": "10.5.2.100",
-    "netmask": "255.255.255.0",
-    "gateway": "10.5.2.1",
-    "dhcp_server": "true"}]
-,"alias": "dns"
-,"hostname": "dns"
-,"dns_domain": "wise.local"
-,"resolvers": ["8.8.8.8","8.8.4.4"]
-
+    "brand": "joyent",
+    "dataset_uuid": "e75c9d82-3156-11ea-9220-c7a6bb9f41b6",
+    "nics": [
+        {
+            "nic_tag": "admin",
+            "ips": [
+                "10.5.2.100/24",
+                "addrconf"
+            ],
+            "gateway": "10.5.2.1"
+        }
+    ],
+    "alias": "dns",
+    "hostname": "dns",
+    "dns_domain": "wise.local",
+    "resolvers": [
+        "8.8.8.8",
+        "8.8.4.4"
+    ],
+    "filesystems": [
+        {
+            "type": "lofs",
+            "source": "/usbkey/config.inc/authorized_keys",
+            "target": "/root/.ssh/authorized_keys",
+            "options": [
+                "ro"
+            ]
+        },
+        {
+            "type": "lofs",
+            "source": "/usbkey/config.inc/authorized_keys",
+            "target": "/home/admin/.ssh/authorized_keys",
+            "options": [
+                "ro"
+            ]
+        }
+    ]
 }
-
