@@ -83,6 +83,33 @@
       state: started
       enabled: true
 
+- hosts: nginx
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+  tasks:
+  - name: install nginx
+    pkgin:
+      update_cache: yes
+      full_upgrade: yes
+      name: nginx
+      state: present
+    notify:
+      - restart nginx
+  - name: copy nginx config
+    copy:
+      src: nginx/nginx.conf
+      dest: /opt/local/etc/nginx/nginx.conf
+    notify:
+      - restart nginx
+  - name: enable nginx
+    service:
+      name: nginx
+      state: started
+      enabled: true
+
 - hosts: dns
   handlers:
     - name: restart dnsmasq
