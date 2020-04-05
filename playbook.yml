@@ -1,5 +1,88 @@
 ---
 
+- hosts: has_users
+  tasks:
+  - name: create group media
+    group:
+      gid: 1001
+      name: media
+  - name: create group gmedia
+    group:
+      gid: 1002
+      name: gmedia
+  - name: create group austin
+    group:
+      gid: 1003
+      name: austin
+  - name: create group g
+    group:
+      gid: 1004
+      name: g
+  - name: create group wheel
+    group:
+      name: wheel
+  - name: copy sudoers
+    copy:
+      src: sudoers.wheel
+      dest: /opt/local/etc/sudoers.d/wheel
+  - name: create user austin
+    user:
+      create_home: false
+      group: austin
+      groups: media,wheel
+      home: /zones/home/austin
+      name: austin
+      shell: /usr/bin/bash
+      uid: 1001
+  - name: create user g
+    user:
+      create_home: false
+      group: g
+      groups: gmedia
+      home: /zones/home/g
+      name: g
+      shell: /usr/bin/bash
+      uid: 1002
+
+
+- hosts: fs
+  handlers:
+    - name: restart smbd
+      service:
+        name: smbd
+        state: restarted
+    - name: restart nmbd
+      service:
+        name: nmbd
+        state: restarted
+  tasks:
+  - name: install samba
+    pkgin:
+      update_cache: yes
+      full_upgrade: yes
+      name: samba-4
+      state: present
+    notify:
+      - restart smbd
+      - restart nmbd
+  - name: copy samba config
+    copy:
+      src: fs/smb.conf
+      dest: /opt/local/etc/samba/smb.conf
+    notify:
+      - restart smbd
+      - restart nmbd
+  - name: enable smbd
+    service:
+      name: smbd
+      state: started
+      enabled: true
+  - name: enable nmbd
+    service:
+      name: nmbd
+      state: started
+      enabled: true
+
 - hosts: dns
   handlers:
     - name: restart dnsmasq
