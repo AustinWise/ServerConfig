@@ -1,6 +1,6 @@
 ---
 
-- hosts: has_users
+- hosts: has_groups
   tasks:
   - name: create group media
     group:
@@ -10,14 +10,6 @@
     group:
       gid: 1002
       name: gmedia
-  - name: create group austin
-    group:
-      gid: 1003
-      name: austin
-  - name: create group g
-    group:
-      gid: 1004
-      name: g
   - name: create group wheel
     group:
       name: wheel
@@ -25,6 +17,12 @@
     copy:
       src: sudoers.wheel
       dest: /opt/local/etc/sudoers.d/wheel
+- hosts: has_user_austin
+  tasks:
+  - name: create group austin
+    group:
+      gid: 1003
+      name: austin
   - name: create user austin
     user:
       create_home: false
@@ -34,6 +32,12 @@
       name: austin
       shell: /usr/bin/bash
       uid: 1001
+- hosts: has_user_g
+  tasks:
+  - name: create group g
+    group:
+      gid: 1004
+      name: g
   - name: create user g
     user:
       create_home: false
