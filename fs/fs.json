@@ -30,11 +30,6 @@
     },
     {
       "type": "lofs",
-      "source": "/zones/home/austin",
-      "target": "/home/austin"
-    },
-    {
-      "type": "lofs",
       "source": "/usbkey/config.inc/authorized_keys",
       "target": "/root/.ssh/authorized_keys",
       "options": [
