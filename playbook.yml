@@ -157,3 +157,27 @@
       minute: "54"
       hour: "7"
       job: "/root/updateDns.sh"
+
+- hosts: torrent
+  handlers:
+    - name: import transmission
+      shell: svccfg import /opt/local/lib/svc/manifest/transmission.xml
+    - name: restart transmission
+      service:
+        name: transmission
+        state: restarted
+  tasks:
+  - name: install transmission
+    pkgin:
+      update_cache: yes
+      full_upgrade: yes
+      name: transmission
+      state: present
+    notify:
+      - restart transmission
+  - name: transmission smf manifest
+    copy:
+      src: torrent/transmission.xml
+      dest: /opt/local/lib/svc/manifest/transmission.xml
+    notify:
+      - import transmission
