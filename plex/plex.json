@@ -1,0 +1,51 @@
+{
+  "brand": "lx",
+  "kernel_version": "3.13.0",
+  "dataset_uuid": "7b5981c4-1889-11e7-b4c5-3f3bdfc9b88b",
+  "max_physical_memory": 1024,
+  "max_swap": 1024,
+  "nics": [
+    {
+      "nic_tag": "admin",
+      "ips": [
+        "10.5.2.109/24",
+        "addrconf"
+      ],
+      "gateway": "10.5.2.1"
+    }
+  ],
+  "alias": "plex",
+  "hostname": "plex",
+  "dns_domain": "wise.local",
+  "resolvers": [
+    "10.5.2.100"
+  ],
+  "filesystems": [
+    {
+      "type": "lofs",
+      "source": "/zones/shares/videos",
+      "target": "/zones/shares/videos",
+      "options": [
+        "ro",
+        "nodevices"
+      ]
+    },
+    {
+      "type": "lofs",
+      "source": "/zones/shares/music",
+      "target": "/zones/shares/music",
+      "options": [
+        "ro",
+        "nodevices"
+      ]
+    },
+    {
+      "type": "lofs",
+      "source": "/usbkey/config.inc/authorized_keys",
+      "target": "/root/.ssh/authorized_keys",
+      "options": [
+        "ro"
+      ]
+    }
+  ]
+}

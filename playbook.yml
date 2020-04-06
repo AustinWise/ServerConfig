@@ -80,12 +80,12 @@
     service:
       name: smbd
       state: started
-      enabled: true
+      enabled: yes
   - name: enable nmbd
     service:
       name: nmbd
       state: started
-      enabled: true
+      enabled: yes
 
 - hosts: nginx
   handlers:
@@ -112,7 +112,7 @@
     service:
       name: nginx
       state: started
-      enabled: true
+      enabled: yes
 
 - hosts: dns
   handlers:
@@ -145,7 +145,7 @@
     service:
       name: dnsmasq
       state: started
-      enabled: true
+      enabled: yes
   - name: dns update script
     copy:
       src: dns/updateDns.sh
@@ -190,3 +190,25 @@
       full_upgrade: yes
       name: git
       state: present
+
+- hosts: plex
+  tasks:
+  - name: update apt and transport
+    apt:
+      autoremove: yes
+      update_cache: yes
+      upgrade: 'yes'
+  - name: install https support
+    apt:
+      name: apt-transport-https
+  - name: Add the plex key
+    apt_key:
+      data: "{{ lookup('file', 'plex/PlexSign.key') }}"
+      state: present
+  - name: Install plex repo
+    apt_repository:
+      filename: plex
+      repo: deb https://downloads.plex.tv/repo/deb public main
+  - name: Install plex
+    apt:
+      name: plexmediaserver
