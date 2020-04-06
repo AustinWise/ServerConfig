@@ -1,10 +1,5 @@
 {
   "zones": {
-    "minute": {
-      "when": "* * * * *",
-      "count": 15,
-      "exclude": [ "zones/swap", "zones/dump", "zones/cores" ]
-    },
     "hourly": {
       "when": "0 * * * *",
       "count": 24,
@@ -17,7 +12,7 @@
     },
     "weekly": {
       "when": "00 05 * * 1",
-      "count": 4,
+      "count": 12,
       "exclude": [ "zones/swap", "zones/dump", "zones/cores" ]
     },
     "monthly": {
@@ -27,7 +22,7 @@
         "zones/swap",
         "zones/dump",
         "zones/cores",
-        "zones/shares/torrents"
+        "zones/shares/steamapps"
       ]
     }
   }
