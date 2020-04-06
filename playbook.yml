@@ -10,6 +10,14 @@
     group:
       gid: 1002
       name: gmedia
+  - name: create group austin
+    group:
+      gid: 1003
+      name: austin
+  - name: create group g
+    group:
+      gid: 1004
+      name: g
   - name: create group wheel
     group:
       name: wheel
@@ -19,10 +27,6 @@
       dest: /opt/local/etc/sudoers.d/wheel
 - hosts: has_user_austin
   tasks:
-  - name: create group austin
-    group:
-      gid: 1003
-      name: austin
   - name: create user austin
     user:
       create_home: false
@@ -34,10 +38,6 @@
       uid: 1001
 - hosts: has_user_g
   tasks:
-  - name: create group g
-    group:
-      gid: 1004
-      name: g
   - name: create user g
     user:
       create_home: false
@@ -181,3 +181,12 @@
       dest: /opt/local/lib/svc/manifest/transmission.xml
     notify:
       - import transmission
+
+- hosts: devl
+  tasks:
+  - name: install git
+    pkgin:
+      update_cache: yes
+      full_upgrade: yes
+      name: git
+      state: present

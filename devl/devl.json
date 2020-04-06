@@ -1,0 +1,50 @@
+{
+  "brand": "joyent",
+  "max_physical_memory": 4096,
+  "image_uuid": "e75c9d82-3156-11ea-9220-c7a6bb9f41b6",
+  "nics": [
+    {
+      "nic_tag": "admin",
+      "ips": [
+        "10.5.2.108/24",
+        "addrconf"
+      ],
+      "gateway": "10.5.2.1"
+    }
+  ],
+  "alias": "devl",
+  "hostname": "devl",
+  "dns_domain": "wise.local",
+  "resolvers": [
+    "10.5.2.100"
+  ],
+  "quota": 100,
+  "filesystems": [
+    {
+      "type": "lofs",
+      "source": "/zones/shares",
+      "target": "/zones/shares"
+    },
+    {
+      "type": "lofs",
+      "source": "/zones/home",
+      "target": "/zones/home"
+    },
+    {
+      "type": "lofs",
+      "source": "/usbkey/config.inc/authorized_keys",
+      "target": "/root/.ssh/authorized_keys",
+      "options": [
+        "ro"
+      ]
+    },
+    {
+      "type": "lofs",
+      "source": "/usbkey/config.inc/authorized_keys",
+      "target": "/home/admin/.ssh/authorized_keys",
+      "options": [
+        "ro"
+      ]
+    }
+  ]
+}
