@@ -12,11 +12,11 @@ SRC=/cygdrive
 
 rsync $RSYNC_OPT $SRC/d/src/ $DEST/src/
 rsync $RSYNC_OPT $SRC/d/AustinWise/ $DEST/AustinWise/
-rsync $RSYNC_OPT $SRC/c/Users/AustinWise/OneDrive/ $DEST/AustinOneDrive/
-rsync $RSYNC_OPT $SRC/c/Users/AustinWise/DropBox/ $DEST/AustinDropBox/
-rsync $RSYNC_OPT $SRC/c/Users/AustinWise/AppData/Roaming/Mozilla/Firefox/Profiles/kqn8ogux.default/ $DEST/FirefoxAustin/
+rsync $RSYNC_OPT $SRC/e/AustinWise/OneDrive/ $DEST/AustinOneDrive/
+rsync $RSYNC_OPT $SRC/e/DropBox/ $DEST/AustinDropBox/
+rsync $RSYNC_OPT $SRC/c/Users/AustinWise/AppData/Roaming/Mozilla/Firefox/Profiles/ $DEST/FirefoxAustin/
 rsync $RSYNC_OPT $SRC/d/G/ $DEST/G/
-rsync $RSYNC_OPT $SRC/c/Users/G/AppData/Roaming/Mozilla/Firefox/Profiles/r82h6mbk.default/ $DEST/FirefoxG/
+rsync $RSYNC_OPT $SRC/c/Users/G/AppData/Roaming/Mozilla/Firefox/Profiles/ $DEST/FirefoxG/
 
 echo done
 
