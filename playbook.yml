@@ -59,6 +59,10 @@
       service:
         name: nmbd
         state: restarted
+    - name: restart avahi
+      service:
+        name: avahi
+        state: restarted
   tasks:
   - name: install samba
     pkgin:
@@ -69,19 +73,37 @@
     notify:
       - restart smbd
       - restart nmbd
+  - name: install samba
+    pkgin:
+      name: avahi
+      state: present
   - name: copy samba config
     copy:
       src: fs/smb.conf
       dest: /opt/local/etc/samba/smb.conf
+  - name: copy avahi config
+    copy:
+      src: fs/hosts
+      dest: /opt/local/etc/avahi/hosts
     notify:
-      - restart smbd
-      - restart nmbd
+      - restart avahi
+  - name: copy avahi servoces config
+    copy:
+      src: fs/_etc_avahi_services_samba.service
+      dest: /opt/local/etc/avahi/services/_etc_avahi_services_samba.service
+    notify:
+      - restart avahi
   - name: enable smbd
     service:
       name: smbd
       state: started
       enabled: yes
   - name: enable nmbd
+    service:
+      name: nmbd
+      state: started
+      enabled: yes
+  - name: enable avahi
     service:
       name: nmbd
       state: started

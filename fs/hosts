@@ -1,3 +1,5 @@
+::1 localhost
+127.0.0.1 localhost localhost.local loghost dns
 
 10.5.2.100 dns.wise.local
 10.5.2.101 fs.wise.local
