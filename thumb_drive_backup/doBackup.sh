@@ -38,9 +38,10 @@ do
         LOCAL_SNAPS=$(zfs list -d 1 -t snap -H -o name -s createtxg $DS)
         if [ $BACKUP_ALL == 0 ]
         then
-                LOCAL_SNAPS=$(echo "$LOCAL_SNAPS" | grep @monthly)
+                SNAP_TO_SEND=$(echo "$LOCAL_SNAPS" |                 tail -n 1)
+        else
+                SNAP_TO_SEND=$(echo "$LOCAL_SNAPS" | grep @monthly | tail -n 1)
         fi
-        SNAP_TO_SEND=$(echo "$LOCAL_SNAPS" | tail -n 1)
         TARGET_FILE=./newBackup/$SHORT_NAME
 
 
