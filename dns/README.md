@@ -2,7 +2,7 @@
 
 The goal of the DNS container is to provide:
 
-* Authoritiative DNS server for ervice discovery for other containers.
+* Authoritative DNS server for service discovery for other containers.
 * Forwarding DNS resolver for all devices on the network.
 * Update dynamic DNS record (not strictly related)
 

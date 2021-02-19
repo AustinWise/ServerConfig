@@ -17,6 +17,12 @@ zone.
 The delegated data set feature of zones is not used as the delegated datasets
 are deleted when the zone is deleted.
 
+## Creating Containers
+
+Each container is defined with a `.json` file. These are not used by Ansible
+currently. They have to be used with `vmadm create -f` to create the containers.
+Ansible will then configure them.
+
 ## How to use Ansible playbooks
 
 First, [install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html).
@@ -29,9 +35,18 @@ sudo apt install ansible
 or
 
 ```bash
-sudo apt install python3-pip
+sudo apt install pip3
 pip3 install --user ansible
 ```
+
+Or on macOS:
+
+```bash
+sudo pip3 install --upgrade pip
+pip3 install --user ansible
+```
+
+NOTE: on macOS, make sure `$HOME/Library/Python/3.x/bin` is on the `PATH`.
 
 NOTE: Ansible does not support Windows.
 
