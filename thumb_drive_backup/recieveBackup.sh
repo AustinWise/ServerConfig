@@ -16,7 +16,7 @@ do
 
 	if [ -f $BACKUP_FILE ]
 	then
-		zfs receive -v $DS < $BACKUP_FILE
+		zfs receive -vF $DS < $BACKUP_FILE
 	fi
 done
 

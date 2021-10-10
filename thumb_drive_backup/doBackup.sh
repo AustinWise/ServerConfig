@@ -1,14 +1,18 @@
 #!/bin/sh
-set -euxo pipefail
+set -euo pipefail
 
 NO_SNAP_NAME=this_snap_name_does_not_exist
 
 BACKUP_ALL=0
+DRY_RUN=0
 
 while [[ $# > 0 ]]; do
         case "$1" in
                 --all)
                         BACKUP_ALL=1
+                ;;
+                -n)
+                        DRY_RUN=1
                 ;;
                 *)
                         echo Unknown option: $0
@@ -47,7 +51,7 @@ do
 
         if [ -f $TARGET_FILE ]
         then
-        echo skipping $DS, target $TARGET_FILE already exists
+                echo skipping $DS, target $TARGET_FILE already exists
                 continue
         fi
 
@@ -72,6 +76,13 @@ do
                 exit 1
         fi
 
+        echo Sending snapshots from $REMOTE_SNAP to $SNAP_TO_SEND
+
+        if [ $DRY_RUN == 1 ]
+        then
+                continue
+        fi
+
         if ! zfs send -Lecv -I $REMOTE_SNAP $SNAP_TO_SEND > $TARGET_FILE
         then
                 rm $TARGET_FILE
@@ -80,4 +91,9 @@ do
         fi
 done
 
-echo DONE, SUCCESSFULLY!
+if [ $DRY_RUN == 0 ]
+then
+        echo DONE, SUCCESSFULLY!
+else
+        echo dry run complete
+fi
