@@ -196,6 +196,9 @@
   - name: install https support
     apt:
       name: apt-transport-https
+  - name: install gpg
+    apt:
+      name: gpg
   - name: Add the plex key
     apt_key:
       data: "{{ lookup('file', 'plex/PlexSign.key') }}"

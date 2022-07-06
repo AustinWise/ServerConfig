@@ -1,7 +1,7 @@
 {
   "brand": "lx",
   "kernel_version": "3.13.0",
-  "dataset_uuid": "7b5981c4-1889-11e7-b4c5-3f3bdfc9b88b",
+  "dataset_uuid": "0bf06d4d-b62f-4b3b-b560-3cd258df2070",
   "max_physical_memory": 1024,
   "max_swap": 1024,
   "nics": [
