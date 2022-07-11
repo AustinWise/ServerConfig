@@ -1,7 +1,7 @@
 {
   "brand": "joyent",
   "max_physical_memory": 4096,
-  "image_uuid": "1d05e788-5409-11eb-b12f-037bd7fee4ee",
+  "image_uuid": "c8715b60-7e98-11ec-82d1-03d16599f529",
   "nics": [
     {
       "nic_tag": "admin",
