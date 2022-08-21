@@ -1,6 +1,6 @@
 {
     "brand": "joyent",
-    "dataset_uuid": "c8715b60-7e98-11ec-82d1-03d16599f529",
+    "dataset_uuid": "85d0f826-0131-11ed-973d-2bfeef68011c",
     "nics": [
         {
             "nic_tag": "admin",
