@@ -49,6 +49,40 @@
       uid: 1002
 
 
+- hosts: dns
+  handlers:
+    - name: restart dnsmasq
+      service:
+        name: dnsmasq
+        state: restarted
+  tasks:
+  - name: install dnsmasq
+    pkgin:
+      update_cache: yes
+      full_upgrade: yes
+      name: dnsmasq
+      state: present
+    notify:
+      - restart dnsmasq
+  - name: hosts file
+    copy:
+      src: dns/hosts
+      dest: /etc/hosts
+    notify:
+      - restart dnsmasq
+  - name: copy dnsmasq config
+    copy:
+      src: dns/dnsmasq.conf
+      dest: /opt/local/etc/dnsmasq.conf
+    notify:
+      - restart dnsmasq
+  - name: enable dnsmasq
+    service:
+      name: dnsmasq
+      state: started
+      enabled: yes
+
+
 - hosts: fs
   handlers:
     - name: restart smbd
@@ -109,38 +143,6 @@
       state: started
       enabled: yes
 
-- hosts: dns
-  handlers:
-    - name: restart dnsmasq
-      service:
-        name: dnsmasq
-        state: restarted
-  tasks:
-  - name: install dnsmasq
-    pkgin:
-      update_cache: yes
-      full_upgrade: yes
-      name: dnsmasq
-      state: present
-    notify:
-      - restart dnsmasq
-  - name: hosts file
-    copy:
-      src: dns/hosts
-      dest: /etc/hosts
-    notify:
-      - restart dnsmasq
-  - name: copy dnsmasq config
-    copy:
-      src: dns/dnsmasq.conf
-      dest: /opt/local/etc/dnsmasq.conf
-    notify:
-      - restart dnsmasq
-  - name: enable dnsmasq
-    service:
-      name: dnsmasq
-      state: started
-      enabled: yes
 
 - hosts: torrent
   handlers:
