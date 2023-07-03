@@ -12,10 +12,14 @@ thingsToSync="$(./listBackupDatasets.sh)"
 for fs in $thingsToSync; do
   remoteVersion=$(ssh root@$remoteIp zfs list -H -o name -t snapshot -r $fs | grep monthly | tail -1l | sed -e "s/^.*@//")
   localVersion=$(zfs list -H -o name -t snapshot -r $fs | grep monthly | tail -1l | sed -e "s/^.*@//")
-  if [ "$remoteVersion" != "$localVersion" ]; then
-    echo $fs needs sync, local: $localVersion remote: $remoteVersion
-    zfs send -LcevI $remoteVersion $fs@$localVersion | ssh root@$remoteIp zfs receive -vF $fs
+  if [ -z "$remoteVersion" ]; then
+    zfs send -pLec $fs@$localVersion | ssh root@$remoteIp zfs receive -v -o readonly=on $fs@$localVersion
   else
-    echo $fs is up to date
+    if [ "$remoteVersion" != "$localVersion" ]; then
+      echo $fs needs sync, local: $localVersion remote: $remoteVersion
+      zfs send -LcevI $remoteVersion $fs@$localVersion | ssh root@$remoteIp zfs receive -vF $fs
+    else
+      echo $fs is up to date
+    fi
   fi
 done
