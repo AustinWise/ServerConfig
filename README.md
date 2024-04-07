@@ -23,6 +23,22 @@ Each container is defined with a `.json` file. These are not used by Ansible
 currently. They have to be used with `vmadm create -f` to create the containers.
 Ansible will then configure them.
 
+Note that starting the `base-64-lts` image starting with version 23.4.0 does not have Python
+installed by default. So you will probably get this error:
+
+```
+/opt/local/bin/python3: not found
+```
+
+To fix, `zlogin` into the zone and install Python:
+
+```bash
+pkgin up
+pkgin fug
+pkgin se python3
+pkgin in python312
+```
+
 ## How to use Ansible playbooks
 
 First, [install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html).
