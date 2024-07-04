@@ -1,0 +1,46 @@
+{
+    "brand": "joyent",
+    "image_uuid": "ceeb6d4e-acab-11ee-8483-00151714048c",
+    "autoboot": true,
+    "alias": "pkgbuild",
+    "hostname": "pkgbuild",
+    "dns_domain": "wise.local",
+    "delegate_dataset": false,
+    "max_physical_memory": 16384,
+    "max_swap": 32768,
+    "quota": 100,
+    "nics": [
+      {
+        "nic_tag": "admin",
+        "ips": [
+          "10.5.2.112/24",
+          "addrconf"
+        ],
+        "gateway": "10.5.2.1"
+      }
+    ],
+    "resolvers": ["10.5.2.100"],
+    "filesystems": [
+      {
+        "type": "lofs",
+        "source": "/zones/home",
+        "target": "/zones/home"
+      },
+      {
+        "type": "lofs",
+        "source": "/usbkey/config.inc/authorized_keys",
+        "target": "/root/.ssh/authorized_keys",
+        "options": [
+          "ro"
+        ]
+      },
+      {
+        "type": "lofs",
+        "source": "/usbkey/config.inc/authorized_keys",
+        "target": "/home/admin/.ssh/authorized_keys",
+        "options": [
+          "ro"
+        ]
+      }
+    ]
+  }
