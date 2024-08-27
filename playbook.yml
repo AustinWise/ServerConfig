@@ -168,6 +168,22 @@
     notify:
       - import transmission
 
+- hosts: wwwshare
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+  tasks:
+  - name: install nginx
+    pkgin:
+      update_cache: yes
+      full_upgrade: yes
+      name: nginx
+      state: present
+    notify:
+      - restart nginx
+
 - hosts: devl
   tasks:
   - name: install git
